@@ -1,6 +1,9 @@
-# C++ Raytracer
+# Raytracing
 
-This is a feature-complete raytracer, originally written in Python but ported to C++17. It supports meshes, CSG operations, BVH acceleration, reflection, refraction,   e and JSON scene loading.
+This is a custom raytracer, originally written in Python but ported to C++17. It supports meshes, CSG operations, BVH acceleration, reflection, refraction, multiple importance sampling, and JSON scene loading.
+
+![A render of the standford bunny with colored lights and specular and diffuse material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball)](image.png)
+A render of the stanford bunny with colored lights and specular and diffuse material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball).
 
 ## Features
 

@@ -1,0 +1,103 @@
+{
+    "background": [0.2, 0.3, 0.5],
+
+    "camera": {
+        "eye": [3, 1.7, 5],
+        "target": [0, 0, 0],
+        "up": [0, 1, 0],
+        "vfov": 25,
+        "aspect": 1.777
+    },
+
+    "materials": {
+        "tan": {
+            "diffuse": [0.7, 0.7, 0.4],
+            "specular": 0.6,
+            "exponent": 20
+        },
+        "gray": {
+            "diffuse": [0.2, 0.2, 0.2],
+            "specular": 0.1
+        },
+        "mirror": {
+            "diffuse": [0.1, 0.1, 0.1],
+            "specular": 0.8,
+            "exponent": 100,
+            "mirror": 0.8
+        },
+        "glass": {
+            "diffuse": [0.01, 0.01, 0.01],
+            "specular": 0.95,
+            "exponent": 300.0,
+            "mirror": 0.02,
+            "ambient": [0.01, 0.01, 0.01],
+            "ior": 1.05,
+            "transmission": [0.98, 0.98, 0.98]
+        },
+        "ice": {
+            "diffuse": [0.05, 0.05, 0.1],
+            "specular": 0.8,
+            "transmission": [0.95, 0.95, 0.95],
+            "ior": 1.5,
+            "mirror": 0.05
+        },
+        "red": {
+            "diffuse": [0.8, 0.2, 0.2],
+            "specular": 0.3
+        },
+        "blue": {
+            "diffuse": [0.2, 0.2, 0.8],
+            "specular": 0.3,
+            "mirror": 0.2
+        }
+    },
+
+    "shapes": [
+        {
+            "type": "sphere",
+            "center": [0, -40, 0],
+            "radius": 39.5,
+            "material": "gray"
+        },
+        {
+            "type": "sphere",
+            "center": [-0.6, 0.4, 1.2],
+            "radius": 0.4,
+            "material": "glass"
+        },
+        {
+            "type": "sphere",
+            "center": [-1.8, 0.35, -0.4],
+            "radius": 0.35,
+            "material": "gray"
+        },
+        {
+            "type": "mesh",
+            "file": "models/stanford-bunny.obj",
+            "material": "blue",
+            "scale": 5.0,
+            "rotation": [0, 45, 0],
+            "translation": [0, -0.5, 0]
+        },
+        {
+            "type": "mesh",
+            "file": "models/crystal_1.obj",
+            "material": "ice",
+            "scale": 1.0,
+            "rotation": [0, 0, 0],
+            "translation": [1,0,-2]
+        }
+    ],
+
+    "lights": [
+        {
+            "type": "point",
+            "position": [12, 10, 5],
+            "intensity": [300, 100, 300]
+        },
+        {
+            "type": "ambient",
+            "intensity": 0.1
+        }
+    ]
+}
