@@ -1,6 +1,3 @@
-# Simple Makefile for raytracer
-# Use this if CMake is not available
-
 CXX = g++
 CXXFLAGS = -std=c++17 -O3 -Wall -Wextra
 INCLUDES = -I include
@@ -18,7 +15,6 @@ $(TARGET): $(SOURCES)
 clean:
 	rm -f $(TARGET) *.ppm *.png
 
-# Run examples
 run: $(TARGET)
 	./$(TARGET) --builtin two_spheres -w 800 -h 450 -o two_spheres.ppm
 
