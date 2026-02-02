@@ -7,7 +7,21 @@ A render of the stanford bunny with colored lights and specular and diffuse mate
 
 
 
+## Beginnings
+There are 2 main primers, 3D transformation math, and the physics behind natural lighting phenomenom. Much of the transfomration math is used a lot in graphics to define the geometry needed to actually conceptualize 3D space. 
 
+Raytracing is an illumination system modeled on the simple fact that to see things, light must bounce from that thing into our eye. For each pixel, we can look up ray intersections with geometry. For each intersection we also want to generate rays to light sources, and figure out how the light illuminates that surface. 
+
+
+## Refraction and Fresnel Reflection
+Snell's law, IORs, and Fresnel-Schlick approximation
+
+![gif](examples/glassbunnyanim1/glassbunny.gif)
+
+## Acceleration
+While it can be computationally expensive to find the nearest triangle for every single ray, this can be sped up in many ways. A popular method is the Bounding Volume Hierchy, where triangles in the scene are giving some bounding volume (cube, sphere, axis aligned or non-axis aligned prism), and before we test intersections with the triangle itself we test for the bounding volume which is usually a simpler computation (ideally small cost for bv test, larger cost for obj test). In addition, the boxes are split up into recursively structured groups, where bonding volumes can contain other bounding volumes, and at the lowest level a list of objects/triangles, hence the "Hierchy" part. It is split in a way such that if you miss some bounding volume, you also miss all of its bounding volume children, to make a tree like structure that is more efficient (log(n) vs. n) to traverse rather than iterively checking.
+
+### BVH tradeoffs and BVH construction
 
 
 
