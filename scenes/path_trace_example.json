@@ -1,0 +1,88 @@
+{
+    "background": [0.0, 0.0, 0.0],
+
+    "camera": {
+        "eye": [0, 2, 8],
+        "target": [0, 0, 0],
+        "up": [0, 1, 0],
+        "vfov": 45,
+        "aspect": 1.777
+    },
+
+    "materials": {
+        "white": {
+            "diffuse": [0.8, 0.8, 0.8],
+            "specular": 0.1
+        },
+        "red": {
+            "diffuse": [0.8, 0.1, 0.1],
+            "specular": 0.1
+        },
+        "green": {
+            "diffuse": [0.1, 0.8, 0.1],
+            "specular": 0.1
+        },
+        "blue": {
+            "diffuse": [0.1, 0.1, 0.8],
+            "specular": 0.3,
+            "exponent": 50
+        },
+        "mirror": {
+            "diffuse": [0.02, 0.02, 0.02],
+            "specular": 0.9,
+            "exponent": 200,
+            "mirror": 0.8
+        },
+        "glass": {
+            "diffuse": [0.01, 0.01, 0.01],
+            "transmission": [0.95, 0.95, 0.95],
+            "ior": 1.5,
+            "mirror": 0.05
+        }
+    },
+
+    "shapes": [
+        {
+            "type": "sphere",
+            "center": [0, -100.5, 0],
+            "radius": 100,
+            "material": "white"
+        },
+        {
+            "type": "sphere",
+            "center": [-1.2, 0.3, 0],
+            "radius": 0.8,
+            "material": "red"
+        },
+        {
+            "type": "sphere",
+            "center": [0, 0.3, 0],
+            "radius": 0.8,
+            "material": "glass"
+        },
+        {
+            "type": "sphere",
+            "center": [1.2, 0.3, 0],
+            "radius": 0.8,
+            "material": "mirror"
+        }
+    ],
+
+    "lights": [
+        {
+            "type": "ambient",
+            "intensity": 0.02
+        }
+    ],
+
+    "area_lights": [
+        {
+            "type": "rect_area",
+            "corner": [-2, 3, -2],
+            "edge1": [4, 0, 0],
+            "edge2": [0, 0, 4],
+            "emission": [5, 5, 8],
+            "samples": 8
+        }
+    ]
+}

@@ -6,6 +6,7 @@
 #include "triangle.hpp"
 #include "mesh.hpp"
 #include "csg.hpp"
+#include "area_light.hpp"
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -245,6 +246,7 @@ public:
     struct SceneData {
         Camera camera;
         Scene scene;
+        std::vector<AreaLightPtr> area_lights;
     };
 
     static Vec3 parse_vec3(const JSON& j, const Vec3& default_val = Vec3(0)) {
@@ -392,6 +394,33 @@ public:
         throw std::runtime_error("Unknown light type: " + type);
     }
 
+    static AreaLightPtr parse_area_light(const JSON& j) {
+        std::string type = j["type"].as_string();
+        Color emission = parse_color(j["emission"], Color(10));
+        int samples = static_cast<int>(j["samples"].as_number(16));
+
+        if (type == "sphere_area") {
+            Vec3 center = parse_vec3(j["center"]);
+            double radius = j["radius"].as_number(1.0);
+            return std::make_shared<SphereAreaLight>(center, radius, emission, samples);
+        }
+
+        if (type == "rect_area") {
+            Vec3 corner = parse_vec3(j["corner"]);
+            Vec3 edge1 = parse_vec3(j["edge1"]);
+            Vec3 edge2 = parse_vec3(j["edge2"]);
+            return std::make_shared<RectAreaLight>(corner, edge1, edge2, emission, samples);
+        }
+
+        if (type == "box_area") {
+            Vec3 min_corner = parse_vec3(j["min"]);
+            Vec3 max_corner = parse_vec3(j["max"]);
+            return std::make_shared<BoxAreaLight>(min_corner, max_corner, emission, samples);
+        }
+
+        throw std::runtime_error("Unknown area light type: " + type);
+    }
+
     static Camera parse_camera(const JSON& j) {
         Vec3 eye = parse_vec3(j["eye"], Vec3(0, 0, 5));
         Vec3 target = parse_vec3(j["target"], Vec3(0, 0, 0));
@@ -402,6 +431,7 @@ public:
         return Camera(eye, target, up, vfov, aspect);
     }
 
+    // parses json scene to build scene object by object
     static SceneData load(const std::string& filename) {
         std::ifstream file(filename);
         if (!file.is_open()) {
@@ -439,6 +469,12 @@ public:
         if (root.has("lights") && root["lights"].is_array()) {
             for (size_t i = 0; i < root["lights"].size(); ++i) {
                 data.scene.add_light(parse_light(root["lights"][i]));
+            }
+        }
+
+        if (root.has("area_lights") && root["area_lights"].is_array()) {
+            for (size_t i = 0; i < root["area_lights"].size(); ++i) {
+                data.area_lights.push_back(parse_area_light(root["area_lights"][i]));
             }
         }
 
