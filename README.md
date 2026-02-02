@@ -1,23 +1,24 @@
 # Raytracing
 
-This is a custom raytracer, originally written in Python but ported to C++17. It supports meshes, CSG operations, BVH acceleration, reflection, refraction, multiple importance sampling, and JSON scene loading.
+This is a custom raytracer, originally written in Python but ported to C++17. It supports meshes, CSG operations, BVH acceleration, reflection, refraction, multiple importance sampling, area lights, (and eventually more).
 
 ![A render of the standford bunny with colored lights and specular and diffuse material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball)](image.png)
 A render of the stanford bunny with colored lights and specular and diffuse material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball).
 
-## Features
 
-- **Primitives**: Spheres, Triangles, Meshes (OBJ loading)
-- **Materials**: Diffuse, specular, mirror reflection, refraction with Fresnel
-- **Acceleration**: BVH (Bounding Volume Hierarchy)
-- **CSG**: Union, Intersection, Difference operations
-- **Lighting**: Point lights, ambient lights
-- **Output**: PPM format (PNG with optional stb_image_write)
-- **Scene Loading**: JSON scene files
 
-## Building
 
-### Using CMake (recommended)
+
+
+
+
+
+
+
+
+## Annoying build stuff
+
+### Using CMake
 ```bash
 mkdir build && cd build
 cmake ..
@@ -70,6 +71,8 @@ g++ -std=c++17 -O3 -I include -o raytracer src/main.cpp
 - `csg` - CSG difference operation demo
 
 ## JSON Scene Format
+
+You can create your own scenes just through defining objects and materials in a json file. Materials support different types of reflection models, including diffuse, specular, blinn-phong. There is also transparency controlled by transmission, an index of refraction you can tune to create different glass/prism-like effects, and even a mirror coefficient that doesn't look trippy at all when thrown onto a sphere. Certain **primitive** shapes are supported, but if you want to get really fancy, I'd suggest downloading 3D model(s) in the form of obj files (or making your own through software like Blender) and try to achieve an aesthetic looking scene using them.
 
 ```json
 {
@@ -140,7 +143,7 @@ You can add custom obj files into the models folder. Then, upon defining an obje
 
 ## Extending
 
-### Adding New Shapes
+### Adding New Shapes (obj files are easier though...)
 
 1. Create a new header in `include/raytracer/`
 2. Inherit from `Shape` and implement:
