@@ -1,3 +1,0 @@
-/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/build/CMakeFiles/raytracer.dir
-/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/build/CMakeFiles/edit_cache.dir
-/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/build/CMakeFiles/rebuild_cache.dir

@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/build",
-  "command": "/usr/bin/c++  -I\"/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/include\" -I\"/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/external\" -O3 -DNDEBUG -std=gnu++17 -arch arm64 -o CMakeFiles/raytracer.dir/src/main.cpp.o -c \"/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/src/main.cpp\"",
-  "file": "/Users/ajh365/Library/Application Support/Claude/local-agent-mode-sessions/21fb793b-bdd8-4a01-aee6-fbf93a9284fb/1f9185f8-da95-4d8b-a050-41ddbc125c27/local_c2b3d8c3-535b-46b4-8bcb-baf29999d548/outputs/raytracer/src/main.cpp",
-  "output": "CMakeFiles/raytracer.dir/src/main.cpp.o"
-}
-]
