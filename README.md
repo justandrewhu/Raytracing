@@ -2,8 +2,8 @@
 
 This is a custom raytracer, originally written in Python but ported to C++17. It supports meshes, CSG operations, BVH acceleration, reflection, refraction, multiple importance sampling, area lights, (and eventually more).
 
-![A render of the standford bunny with colored lights and specular and diffuse material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball)](image.png)
-A render of the stanford bunny with colored lights and specular and diffuse material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball).
+![gif](examples/glassbunnyanim1/glassbunny.gif)
+A render of the stanford bunny with an ice-like material. Also in this image is a good example of refraction (the crystal-like object) and fresnel reflection (the glass ball). If you can't tell I like crystal/ice-like effects.
 
 
 
@@ -16,7 +16,7 @@ Raytracing is an illumination system modeled on the simple fact that to see thin
 ## Refraction and Fresnel Reflection
 Snell's law, IORs, and Fresnel-Schlick approximation
 
-![gif](examples/glassbunnyanim1/glassbunny.gif)
+
 
 ## Acceleration
 While it can be computationally expensive to find the nearest triangle for every single ray, this can be sped up in many ways. A popular method is the Bounding Volume Hierchy, where triangles in the scene are giving some bounding volume (cube, sphere, axis aligned or non-axis aligned prism), and before we test intersections with the triangle itself we test for the bounding volume which is usually a simpler computation (ideally small cost for bv test, larger cost for obj test). In addition, the boxes are split up into recursively structured groups, where bonding volumes can contain other bounding volumes, and at the lowest level a list of objects/triangles, hence the "Hierchy" part. It is split in a way such that if you miss some bounding volume, you also miss all of its bounding volume children, to make a tree like structure that is more efficient (log(n) vs. n) to traverse rather than iterively checking.
